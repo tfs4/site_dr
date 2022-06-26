@@ -1,0 +1,55 @@
+.not-visible {
+    display: none;
+}
+
+h3 {
+ font-family: georgia,serif;
+ color: #755c44;
+ font-size: 20px;
+ letter-spacing: 0.1em;
+ line-height: 1.5em;
+ text-transform: uppercase;
+ margin: 10px;
+ }
+
+h3 em{
+ color:#8F7C47;
+ letter-spacing:0.05em;
+ text-transform:none;
+ font-size:20px;
+ }
+
+.authorDate {
+ border-color:#695C44;
+ border-bottom:1px dashed;
+ margin:0px 10px 0px 10px;
+ padding-left:5px;
+ color:#666666;
+ font-family:Tahoma;
+ font-size:10px;
+ font-variant:normal;
+ font-weight:lighter;
+ letter-spacing:3px;
+ text-transform:uppercase;
+ }
+
+.content {
+ font-family: georgia,serif;
+ font-size: 12px;
+ line-height: 20px;
+ letter-spacing:1px;
+ }
+
+#topo{
+   margin: 20px;
+   margin: 0 auto;
+ text-align: center;
+}
+#center{
+    width: 750px;
+    margin: 0 auto;
+    background-color:#DCDCDC;
+	border-radius: 10px;
+    padding: 5px;
+
+}
