@@ -1,4 +1,4 @@
-console.log('hello world')
+
 const uploadForm = document.getElementById('upload-form')
 const input = document.getElementById('id_image')
 console.log(input)
@@ -14,10 +14,10 @@ const csrf = document.getElementsByName('csrfmiddlewaretoken')
 input.addEventListener('change', ()=>{
     progressBox.classList.remove('not-visible')
     cancelBox.classList.remove('not-visible')
-
     const img_data = input.files[0]
     const url = URL.createObjectURL(img_data)
     console.log(img_data)
+
 
     const fd = new FormData()
     fd.append('csrfmiddlewaretoken', csrf[0].value)
@@ -60,16 +60,16 @@ input.addEventListener('change', ()=>{
         },
         success: function(response){
             console.log(response)
-            imageBox.innerHTML = `<img src="${url}" width="300px">`
+
+            imageBox.innerHTML = `<img src="${url}" width="450px">`
             alertBox.innerHTML = `<div class="alert alert-success" role="alert">
-                                    Successfully uploaded the image below
-                                </div>`
+                                    Result: ${response.message}</div>`
             cancelBox.classList.add('not-visible')
         },
         error: function(error){
             console.log(error)
             alertBox.innerHTML = `<div class="alert alert-danger" role="alert">
-                                    Ups... something went wrong
+                                    Something went wrong
                                 </div>`
         },
         cache: false,

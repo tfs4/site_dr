@@ -17,18 +17,21 @@ def is_ajax(request):
 def home_view(request):
     form = UploadForm(request.POST or None, request.FILES or None)
     classe = 'DR_0'
-    #if is_ajax(request=request):
-    if form.is_valid():
+    if is_ajax(request=request):
+       if form.is_valid():
             document = form.save(commit=False)
             document.save()
             result =  classifier(document.image)
             result = result.numpy()
             result = str(result[0])
             if result == '1':
-                classe = "DR_1"
+                mensagem = "Diabetic Retinopathy Detected"
+            else:
+                mensagem = "Diabetic retinopathy NOT detected"
+
+       return JsonResponse({'message': mensagem})
     context = {
         'form': form,
-        'class': classe,
     }
     return render(request, 'uploads/main.html', context)
 
