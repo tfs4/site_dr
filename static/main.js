@@ -61,9 +61,22 @@ input.addEventListener('change', ()=>{
         success: function(response){
             console.log(response)
 
+
+
             imageBox.innerHTML = `<img src="${url}" width="450px">`
             alertBox.innerHTML = `<div class="alert alert-success" role="alert">
-                                    Result: ${response.message}</div>`
+                                    Result: ${response.message}</div><div> 
+                                        <ul>
+                                                    <li class="${response.item_0}">Stage 0: No diabetic retinopathy.</li>
+                                                    <li class="${response.item_1}">Stage 1: Mild nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_2}">Stage 2: Moderate nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_3}">Stage 3: Severe nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_4}">Stage 4: Proliferative diabetic retinopathy.</li>
+                                         </ul>
+                                    </div>`
+
+
+
             cancelBox.classList.add('not-visible')
         },
         error: function(error){

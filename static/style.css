@@ -53,3 +53,19 @@ h3 em{
     padding: 5px;
 
 }
+.alert alert-success{
+ text-align: center;
+}
+li{
+    list-style-type: none;
+    padding: 4px;
+}
+
+.no_selectes_item{
+}
+
+.selectes_item{
+    background: #FA8072;
+
+}
+
