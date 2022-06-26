@@ -7,24 +7,29 @@ from torch import nn
 import torchvision.models as models
 import cv2, glob, numpy
 import os
-
+from PIL import Image
+from torchvision.transforms import transforms
+from django.contrib import messages
 
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
 def home_view(request):
     form = UploadForm(request.POST or None, request.FILES or None)
-
-    if is_ajax(request=request):
-        if form.is_valid():
+    classe = 'DR_0'
+    #if is_ajax(request=request):
+    if form.is_valid():
             document = form.save(commit=False)
             document.save()
-            classifier(document.image)
-            return JsonResponse({'message': 'ok'})
+            result =  classifier(document.image)
+            result = result.numpy()
+            result = str(result[0])
+            if result == '1':
+                classe = "DR_1"
     context = {
         'form': form,
+        'class': classe,
     }
-
     return render(request, 'uploads/main.html', context)
 
 
@@ -52,7 +57,6 @@ def get_densenet121_2_classes():
 
         nn.Linear(256, 2),
     )
-    densenet121.cuda()
 
     return densenet121
 
@@ -86,9 +90,25 @@ def preprocessing(img):
 
 
 
+
 def classifier(file):
     preprocessing(str(file))
+
+    dir = str(file).split('/')
+
     classificador = get_densenet121_2_classes()
     path_loader = torch.load('model_A.pt')
     classificador.load_state_dict(path_loader)
-    print('model load')
+    classificador.eval()
+
+    test_transform = transforms.Compose([transforms.Resize([1024, 1024]),
+                                         transforms.ToTensor(),
+                                         transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+                                         ])
+
+    a = Image.open('media/processed/'+dir[1])
+    image = test_transform(a).float()
+    image = image.unsqueeze(0)
+    output = classificador(image)
+    predictions = output.argmax(dim=1).detach()
+    return predictions
