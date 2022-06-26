@@ -1,0 +1,9 @@
+*.pyc
+*.jpg
+*.JPG
+*.zip
+*.png
+*.PNG
+*.pt
+.idea/workspace.xml
+
