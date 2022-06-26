@@ -38,7 +38,7 @@ def home_view(request):
 
             if result == '1':
                 mensagem = "Diabetic Retinopathy Detected"
-
+                
                 if result_mc == '0':
                     item_1 = 'selectes_item'
                 elif result_mc == '1':
