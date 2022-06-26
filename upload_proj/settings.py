@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import django_on_heroku
+import django_on_heroku as django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
