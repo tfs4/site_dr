@@ -4,5 +4,6 @@
 *.zip
 *.png
 *.PNG
+*.pt
 .idea/workspace.xml
 

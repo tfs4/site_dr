@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from .forms import UploadForm
 from django.http import JsonResponse
+from django.shortcuts import HttpResponse
 import torch
 from torch import nn
 import torchvision.models as models
-import cv2, numpy
+import cv2, glob, numpy
+import os
 from PIL import Image
 from torchvision.transforms import transforms
-
+from django.contrib import messages
 
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
