@@ -1,1 +1,0 @@
-gunicorn upload_proj.wsgi

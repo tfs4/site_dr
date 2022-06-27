@@ -1,7 +1,0 @@
-spec:
-  name: upload_proj
-  services:
-  - name: web
-    git:
-      branch: main
-      repo_clone_url: https://github.com/tfs4/site_dr.git
