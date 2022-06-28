@@ -4,5 +4,7 @@
 *.zip
 *.png
 *.PNG
+.idea/*
 .idea/workspace.xml
-
+.idea/Progress-bar.iml
+.idea/misc.xml
