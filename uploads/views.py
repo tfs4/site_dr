@@ -152,13 +152,21 @@ def classifier(file):
     dir = str(file).split('/')
 
     classificador = get_densenet121_2_classes()
-    path_loader = torch.load('model_A.pt')
-    classificador.load_state_dict(path_loader)
+    #path_loader = torch.load('model_A.pt')
+    classificador.load_state_dict(torch.load('model_A.pt',
+                                     map_location=torch.device('cpu')))
+
+
+    #classificador.load_state_dict(path_loader)
     classificador.eval()
 
     classificador_mc = get_densenet121_mc()
-    path_loader = torch.load('model_B.pt')
-    classificador_mc.load_state_dict(path_loader)
+    #path_loader = torch.load('model_B.pt')
+
+    classificador_mc.load_state_dict(torch.load('model_B.pt',
+                                             map_location=torch.device('cpu')))
+
+    #classificador_mc.load_state_dict(path_loader)
     classificador_mc.eval()
 
 
