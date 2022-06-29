@@ -1,15 +1,12 @@
 from django.shortcuts import render
 from .forms import UploadForm
 from django.http import JsonResponse
-from django.shortcuts import HttpResponse
 import torch
 from torch import nn
 import torchvision.models as models
-import cv2, glob, numpy
-import os
+import cv2, numpy
 from PIL import Image
 from torchvision.transforms import transforms
-from django.contrib import messages
 
 #https://stefanbschneider.github.io/blog/pytorch-django
 
