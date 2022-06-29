@@ -11,6 +11,9 @@ from PIL import Image
 from torchvision.transforms import transforms
 from django.contrib import messages
 
+#https://stefanbschneider.github.io/blog/pytorch-django
+
+
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
