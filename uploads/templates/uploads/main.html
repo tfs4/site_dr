@@ -2,14 +2,33 @@
 
 {% block content %}
 
+<style>
 
+</style>
+<main>
+
+  <input id="tab1" type="radio" name="tabs" class="i_radio" checked>
+  <label for="tab1">Classification Examples</label>
+
+  <input id="tab2" type="radio" class="i_radio" name="tabs">
+  <label for="tab2">Upload Image</label>
+
+  <input id="tab3" type="radio" class="i_radio" name="tabs">
+  <label for="tab3">About</label>
+
+
+
+  <section id="content1">
+   dddd
+  </section>
+
+  <section id="content2">
     <div id="alert-box"></div>
     <div id="image-box"></div>
     <br>
     <form action="" id="upload-form">
         {% csrf_token %}
         {{form.as_p}}
-
     </form>
     <br>
     <div id="progress-box" class="not-visible">progress</div>
@@ -17,6 +36,20 @@
         <button id="cancel-btn" class="btn btn-danger">cancel</button>
     </div>
     <a href="https://github.com/tfs4/Sample_retinal_fundus_images/blob/main/sample.zip?raw=true">Download some sample images</a>
+  </section>
+
+  <section id="content3">
+   dddd
+  </section>
+
+
+</main>
+
+
+
+
+
+
 
 {% endblock content %}
 
