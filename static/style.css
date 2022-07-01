@@ -46,7 +46,7 @@ h3 em{
  text-align: center;
 }
 #center{
-    width: 700px;
+    width: 800px;
     height: 1000px;
     margin: 0 auto;
 
@@ -194,5 +194,32 @@ input:checked + label {
   }
 }
 
+#image_upada{
+    width: 270px;
+    margin:0 auto ;
+    margin-left: 10px;
+
+}
+
+#classificacao_img{
+    width: 350px;
+    background: #eee;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    float: right;
 
 
+}
+
+#classificacao_img li{
+    margin-top: 10px;
+    font-size: 9pt;
+}
+
+#link_download{
+    margin-left: 10px;
+    margin-top: 30px;
+}
