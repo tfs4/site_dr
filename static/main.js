@@ -63,19 +63,15 @@ input.addEventListener('change', ()=>{
 
 
 
-            imageBox.innerHTML = ``
-            alertBox.innerHTML = `
-<div class="alert alert-success" role="alert"> Result:  ${response.message}</div>
- <img src="${url}" id="image_upada">
-
-
-                                <div id="classificacao_img">
+            imageBox.innerHTML = `<img src="${url}" width="450px">`
+            alertBox.innerHTML = `<div class="alert alert-success" role="alert">
+                                    Result: ${response.message}</div><div> 
                                         <ul>
-                                                    <li class="${response.item_0}"><b>Stage 0</b>: No diabetic retinopathy.</li>
-                                                    <li class="${response.item_1}"><b>Stage 1</b>: Mild nonproliferative diabetic retinopathy.</li>
-                                                    <li class="${response.item_2}"><b>Stage 2</b>: Moderate nonproliferative diabetic retinopathy.</li>
-                                                    <li class="${response.item_3}"><b>Stage 3</b>: Severe nonproliferative diabetic retinopathy.</li>
-                                                    <li class="${response.item_4}"><b>Stage 4</b>: Proliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_0}">Stage 0: No diabetic retinopathy.</li>
+                                                    <li class="${response.item_1}">Stage 1: Mild nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_2}">Stage 2: Moderate nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_3}">Stage 3: Severe nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_4}">Stage 4: Proliferative diabetic retinopathy.</li>
                                          </ul>
                                     </div>`
 
