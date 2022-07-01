@@ -46,9 +46,10 @@ h3 em{
  text-align: center;
 }
 #center{
-    width: 500px;
+    width: 800px;
+    height: 1000px;
     margin: 0 auto;
-    background-color:#DCDCDC;
+
 	border-radius: 10px;
     padding: 5px;
 
@@ -69,3 +70,156 @@ li{
 
 }
 
+
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font: 14px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #eee;
+}
+
+h1 {
+  padding: 50px 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+main {
+  min-width: 320px;
+  max-width: 800px;
+  padding: 50px;
+  margin: 0 auto;
+  background: #fff;
+    border-radius: 10px;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+.i_radio {
+  display: none;
+}
+
+#id_image:before,
+#id_image:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+    border-color: black;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label[for*='1']:before {
+
+}
+
+label[for*='2']:before {
+
+}
+
+label[for*='3']:before {
+
+}
+
+label[for*='4']:before {
+
+}
+
+label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3{
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
+  }
+
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  label {
+    padding: 15px;
+  }
+}
+
+#image_upada{
+    width: 270px;
+    margin:0 auto ;
+    margin-left: 10px;
+
+}
+
+#classificacao_img{
+    width: 350px;
+    background: #eee;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    float: right;
+
+
+}
+
+#classificacao_img li{
+    margin-top: 10px;
+    font-size: 9pt;
+}
+
+#link_download{
+    margin-left: 10px;
+    margin-top: 30px;
+}
