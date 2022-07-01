@@ -8,6 +8,7 @@ import cv2, numpy
 from PIL import Image
 from torchvision.transforms import transforms
 
+# spinner
 #https://stefanbschneider.github.io/blog/pytorch-django
 
 
