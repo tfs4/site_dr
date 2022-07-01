@@ -94,4 +94,3 @@ input.addEventListener('change', ()=>{
         processData: false,
     })
 })
-
