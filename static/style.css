@@ -233,7 +233,7 @@ input:checked + label {
 
 
 #load_process:h1 {
-  font: 2em 'Roboto', sans-serif;
+  font: 5pt 'Roboto', sans-serif !important;
   margin-bottom: 10px;
 }
 
