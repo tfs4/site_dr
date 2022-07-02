@@ -56,6 +56,8 @@ input.addEventListener('change', ()=>{
                     cancelBox.classList.add('not-visible')
                 }, 2000)
             })
+
+            imageBox.innerHTML = `<div id="load_process"><h1>Making the Diagnosis</h1><div id="loading"></div></div>`
             return xhr
         },
         success: function(response){
