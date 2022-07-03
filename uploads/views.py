@@ -17,10 +17,43 @@ def is_ajax(request):
 
 
 def classifier_one(request):
-    print('ok')
+    form = UploadForm(request.POST or None, request.FILES or None)
+    item_0 = 'no_selectes_item'
+    item_1 = 'no_selectes_item'
+    item_2 = 'no_selectes_item'
+    item_3 = 'no_selectes_item'
+    item_4 = 'no_selectes_item'
+
     if is_ajax(request=request):
         print('ajax')
-    return JsonResponse({'message': 'ok'})
+        #file =  Image.open("media/images/1.png", "r")
+        result, result_mc =  classifier('images/1.png')
+        result = result.numpy()
+        result = str(result[0])
+
+        result_mc = result_mc.numpy()
+        result_mc = str(result_mc[0])
+        if result == '1':
+            mensagem = "Diabetic Retinopathy Detected"
+
+            if result_mc == '0':
+                item_1 = 'selectes_item'
+            elif result_mc == '1':
+                item_2 = 'selectes_item'
+            elif result_mc == '2':
+                item_3 = 'selectes_item'
+            elif result_mc == '3':
+                item_4 = 'selectes_item'
+        else:
+            mensagem = "Diabetic retinopathy NOT detected"
+            item_0 = 'selectes_item'
+
+        return JsonResponse({'message': mensagem, 'level': result_mc, 'item_0': item_0, 'item_1': item_1, 'item_2': item_2,
+                         'item_3': item_3, 'item_4': item_4})
+    context = {
+        'form': form,
+    }
+    return render(request, 'uploads/main.html', context)
 
 def home_view(request):
     mensagem = ''
@@ -58,6 +91,7 @@ def home_view(request):
             else:
                 mensagem = "Diabetic retinopathy NOT detected"
                 item_0 = 'selectes_item'
+
 
             return JsonResponse({'message': mensagem, 'level' : result_mc, 'item_0': item_0, 'item_1': item_1, 'item_2': item_2, 'item_3': item_3, 'item_4': item_4})
     context = {
@@ -144,7 +178,6 @@ def preprocessing(img):
 
         dir = img.split('/')
         cv2.imwrite('media/processed/'+dir[1], aa)
-
 
 
 

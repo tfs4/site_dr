@@ -200,6 +200,25 @@ input:checked + label {
     margin-left: 10px;
 
 }
+.image_upada_cls{
+    width: 270px;
+    margin:0 auto ;
+    margin-left: 10px;
+
+}
+
+.classificacao_img_cls{
+    width: 350px;
+    background: #eee;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    float: right;
+
+
+}
 
 #classificacao_img{
     width: 350px;
@@ -214,7 +233,7 @@ input:checked + label {
 
 }
 
-#classificacao_img li{
+#classificacao_img, .classificacao_img_cls li{
     margin-top: 10px;
     font-size: 9pt;
 }
@@ -275,5 +294,10 @@ input:checked + label {
 }
 .item_classifier p:hover{
     color: black;
+
+}
+#barra_imagens{
+    width: 100%;
+    height: 120px;
 
 }
