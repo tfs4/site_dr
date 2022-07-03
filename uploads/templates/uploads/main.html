@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+      <script>
+function myfunction(type){
+    let url = "{% url 'quantities' %}".replace('ok', type);
+    $.ajax({
+      method: 'POST',
+      url: url,
+      data: {
+          csrfmiddlewaretoken: '{{ csrf_token }}'
+      }
+  });
+  }
+      </script>
 <style>
 
 </style>
@@ -18,22 +29,31 @@
 
 
 
-  <section id="content2">
+  <section id="content1">
 
 
 
 
-      <div>
+      <div> <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
+      <div> <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
+      <div> <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
+      <div> <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
+      <div> <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
 
 
     </div>
 
   </section>
 
-  <section id="content1">
+  <section id="content2">
     <div id="alert-box"></div>
     <div id="image-box"></div>
     <br>
+
+
+
+</script>
+
     <form action="" id="upload-form">
         {% csrf_token %}
         {{form.as_p}}

@@ -15,6 +15,13 @@ from torchvision.transforms import transforms
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
+
+def classifier_one(request):
+    print('ok')
+    if is_ajax(request=request):
+        print('ajax')
+    return JsonResponse({'message': 'ok'})
+
 def home_view(request):
     mensagem = ''
     form = UploadForm(request.POST or None, request.FILES or None)
