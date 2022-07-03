@@ -40,7 +40,9 @@ input.addEventListener('change', ()=>{
                 if (e.lengthComputable) {
                     const percent = e.loaded / e.total * 100
                     console.log(percent)
-                    progressBox.innerHTML = `<div class="progress">
+                    progressBox.innerHTML = ` 
+                                                <div class="progress">
+                                               
                                                 <div class="progress-bar" role="progressbar" style="width: ${percent}%" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                             <p>${percent.toFixed(1)}%</p>`
@@ -64,7 +66,7 @@ input.addEventListener('change', ()=>{
             console.log(response)
 
 
-
+            progressBox.innerHTML = ``
             imageBox.innerHTML = ``
             alertBox.innerHTML = `
 <div class="alert alert-success" role="alert"> Result:  ${response.message}</div>
