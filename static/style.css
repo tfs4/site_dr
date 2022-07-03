@@ -223,7 +223,7 @@ input:checked + label {
     margin-top: 30px;
 }
 #load_process{
-    width: 650px;
+    width: 100%;
     height: 250px;
     background: #eee;
     text-align:center;
