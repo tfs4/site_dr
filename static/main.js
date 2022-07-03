@@ -49,6 +49,7 @@ input.addEventListener('change', ()=>{
                 }
 
             })
+            /**/
             cancelBtn.addEventListener('click', ()=>{
                 xhr.abort()
                 setTimeout(()=>{
