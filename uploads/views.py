@@ -25,9 +25,16 @@ def classifier_one(request):
     item_4 = 'no_selectes_item'
 
     if is_ajax(request=request):
-        print('ajax')
+
+
+        classe = request.POST.get('variavel')
+
+
+        img_name = str(classe)+'.png'
+
+
         #file =  Image.open("media/images/1.png", "r")
-        result, result_mc =  classifier('images/1.png')
+        result, result_mc =  classifier('images/'+img_name)
         result = result.numpy()
         result = str(result[0])
 
@@ -48,8 +55,8 @@ def classifier_one(request):
             mensagem = "Diabetic retinopathy NOT detected"
             item_0 = 'selectes_item'
 
-        return JsonResponse({'message': mensagem, 'level': result_mc, 'item_0': item_0, 'item_1': item_1, 'item_2': item_2,
-                         'item_3': item_3, 'item_4': item_4})
+        return JsonResponse({'message': mensagem, 'level' : result_mc, 'item_0': item_0, 'item_1': item_1, 'item_2': item_2, 'item_3': item_3, 'item_4': item_4})
+
     context = {
         'form': form,
     }

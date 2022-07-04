@@ -2,18 +2,46 @@
 
 {% block content %}
       <script>
-function myfunction(type){
+function myfunction(type, img){
+    const imageBox = document.getElementById('image-box_2')
+    imageBox.innerHTML = `<div class="load_process_2"><br /><br /><br /><br /><br /><br /><p>Making the Diagnosis</p><div id="loading"></div></div>`
     let url = "{% url 'quantities' %}".replace('ok', type);
     const alertBox = document.getElementById('alert-box_2')
+    alertBox.innerHTML = ''
 
 
     $.ajax({
       method: 'POST',
       url: url,
+
       data: {
-          csrfmiddlewaretoken: '{{ csrf_token }}'
+          csrfmiddlewaretoken: '{{ csrf_token }}',
+          variavel: img
+      },
+      success: function(response) {
+         console.log(response)
+         imageBox.innerHTML = ``
+         alertBox.innerHTML = `
+                            <div class="alert alert-success" role="alert"> Result:  ${response.message}</div>
+                            <img src="media/images/`+img+`.png" class="image_upada_cls">
+
+                            <div class="classificacao_img_cls">
+                                            <ul>
+                                                    <li class="${response.item_0}"><b>Stage 0</b>: No diabetic retinopathy.</li>
+                                                    <li class="${response.item_1}"><b>Stage 1</b>: Mild nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_2}"><b>Stage 2</b>: Moderate nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_3}"><b>Stage 3</b>: Severe nonproliferative diabetic retinopathy.</li>
+                                                    <li class="${response.item_4}"><b>Stage 4</b>: Proliferative diabetic retinopathy.</li>
+                                            </ul>
+                             </div>`
       }
+
+
   });
+
+
+
+
   }
       </script>
 <style>
@@ -22,10 +50,10 @@ function myfunction(type){
 <main>
 
   <input id="tab1" type="radio" name="tabs" class="i_radio" checked>
-  <label for="tab1">Upload</label>
+  <label for="tab1">Examples</label>
 
   <input id="tab2" type="radio" class="i_radio" name="tabs">
-  <label for="tab2">Examples</label>
+  <label for="tab2">Upload</label>
 
   <input id="tab3" type="radio" class="i_radio" name="tabs">
   <label for="tab3">About</label>
@@ -36,39 +64,19 @@ function myfunction(type){
 
 
       <div id="barra_imagens">
-              <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
-              <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
-              <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
-              <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
-              <div class="item_classifier"> <a href="#" onclick="myfunction('forward');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
+              <div class="item_classifier"> <a href="#" onclick="myfunction('forward', '0');"><img class="img_classifier_link" src="media/images/0.png" /> <p>Level 0</p></a></div>
+              <div class="item_classifier"> <a href="#" onclick="myfunction('forward', '1');"><img class="img_classifier_link" src="media/images/1.png" /> <p>Level 1</p></a></div>
+              <div class="item_classifier"> <a href="#" onclick="myfunction('forward', '2');"><img class="img_classifier_link" src="media/images/2.png" /> <p>Level 2</p></a></div>
+              <div class="item_classifier"> <a href="#" onclick="myfunction('forward', '3');"><img class="img_classifier_link" src="media/images/3.png" /> <p>Level 3</p></a></div>
+              <div class="item_classifier"> <a href="#" onclick="myfunction('forward', '4');"><img class="img_classifier_link" src="media/images/4.png" /> <p>Level 4</p></a></div>
 
 
       </div>
-
+        <div id="image-box_2"></div>
 
         <div id="alert-box_2">
-             <div class="alert alert-success" role="alert"> Result:{{  response.message }} </div>
 
         </div>
-
-
-
-
-
-
-                            <img src="media/images/1.png" class="image_upada_cls">
-
-
-                                <div class="classificacao_img_cls">
-                                        <ul>
-                                                    <li class="${response.item_0}"><b>Stage 0</b>: No diabetic retinopathy.</li>
-                                                    <li class="${response.item_1}"><b>Stage 1</b>: Mild nonproliferative diabetic retinopathy.</li>
-                                                    <li class="${response.item_2}"><b>Stage 2</b>: Moderate nonproliferative diabetic retinopathy.</li>
-                                                    <li class="${response.item_3}"><b>Stage 3</b>: Severe nonproliferative diabetic retinopathy.</li>
-                                                    <li class="${response.item_4}"><b>Stage 4</b>: Proliferative diabetic retinopathy.</li>
-                                         </ul>
-                                    </div>
-
 
 
 
