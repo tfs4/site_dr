@@ -35,6 +35,7 @@ input.addEventListener('change', ()=>{
         },
         xhr: function(){
             const xhr = new window.XMLHttpRequest();
+            /*xhr.upload.addEventListener('progress', e=>{*/
             xhr.upload.addEventListener('progress', e=>{
                 // console.log(e)
                 if (e.lengthComputable) {
