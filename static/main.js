@@ -99,3 +99,13 @@ input.addEventListener('change', ()=>{
         processData: false,
     })
 })
+function classifie_one(type){
+    let url = "{% url 'quantities' %}".replace('ok', type);
+    $.ajax({
+      method: 'POST',
+      url: url,
+      data: {
+          csrfmiddlewaretoken: '{{ csrf_token }}'
+      }
+  });
+  }
