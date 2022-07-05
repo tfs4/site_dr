@@ -4,7 +4,7 @@
       <script>
 function myfunction(type, img){
     const imageBox = document.getElementById('image-box_2')
-    imageBox.innerHTML = `<div class="load_process_2"><br /><br /><br /><br /><br /><br /><p>Making the Diagnosis</p><div id="loading"></div></div>`
+    imageBox.innerHTML = `<div class="load_process_2"><br /><br /><br /><br /><br /><br /><p>Analyzing the image</p><div id="loading"></div></div>`
     let url = "{% url 'quantities' %}".replace('ok', type);
     const alertBox = document.getElementById('alert-box_2')
     alertBox.innerHTML = ''
