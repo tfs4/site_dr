@@ -61,7 +61,7 @@ input.addEventListener('change', ()=>{
                 }, 2000)
             })
 
-            imageBox.innerHTML = `<div id="load_process"><br /><br /><br /><br /><br /><br /><p>Making the Diagnosis</p><div id="loading"></div></div>`
+            imageBox.innerHTML = `<div id="load_process"><br /><br /><br /><br /><br /><br /><p>Analyzing the image</p><div id="loading"></div></div>`
             return xhr
         },
         success: function(response){
