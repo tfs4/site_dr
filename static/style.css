@@ -101,12 +101,17 @@ p {
   line-height: 1.5;
 }
 
+main h1, h2, h3, h4, h5{
+    text-align: center;
+}
+
 main {
     width: 68%;
   padding: 50px;
   margin: 0 auto;
   background: #fff;
   border-radius: 10px;
+    text-align: justify;
 
 }
 
