@@ -75,7 +75,7 @@ input.addEventListener('change', ()=>{
  <img src="${url}" id="image_upada">
 
 
-                                <div id="classificacao_img">
+                                <div id="classificacao_img" class="classificacao_img_cls">
                                         <ul>
                                                     <li class="${response.item_0}"><b>Stage 0</b>: No diabetic retinopathy.</li>
                                                     <li class="${response.item_1}"><b>Stage 1</b>: Mild nonproliferative diabetic retinopathy.</li>
